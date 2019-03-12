@@ -6,12 +6,12 @@ const burger = ( props ) => {
     console.log(Object.keys( props.ingredients ));
     let transformedIngredients = Object.keys( props.ingredients )
         .map( igKey => {
-            return [...Array( props.ingredients[igKey] )].map( ( _, i ) => {
-                return <BurgerIngredient key={igKey + i} type={igKey} />;
+            return [...Array( props.ingredients[igKey] )].map( ( _, i ) => { // _ - underscore - nazwa bez roznicy, robienie pustej tablic z x elementami [..Array(x)]
+                return <BurgerIngredient key={igKey + i} type={igKey} />; // musi być klucz!
             } );
         } )
-        .reduce((arr, el) => {
-            return arr.concat(el)
+        .reduce((arr, el) => { 
+            return arr.concat(el) // redukuje, concat - łączenie tablicy arr z tablica el
         }, []);
     if (transformedIngredients.length === 0) {
         transformedIngredients = <p>Please start adding ingredients!</p>;
