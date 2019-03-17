@@ -5,7 +5,7 @@ import Backdrop from '../Backdrop/Backdrop';
 
 const modal = props => (
     <Aux>
-        <Backdrop show={props.show} />
+        <Backdrop show={props.show} clicked={props.modalClosed} />
         <div 
             className={classes.Modal}
             style={{
@@ -14,7 +14,7 @@ const modal = props => (
             }}
             >
             {props.children}
-            <button>Zimno mi w stopy!</button>
+            <button onClick={props.modalClosed}>Zimno mi w stopy! (zamkne też okienko :))</button>
         </div>
     </Aux>
 )
