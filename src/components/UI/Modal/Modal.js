@@ -14,7 +14,6 @@ const modal = props => (
             }}
             >
             {props.children}
-            <button onClick={props.modalClosed}>Zimno mi w stopy! (zamkne też okienko :))</button>
         </div>
     </Aux>
 )
