@@ -1,14 +1,14 @@
 .Toolbar {
-    height: 56px;
+    height: 58px;
     width: 100%;
     position: fixed; 
     top: 0;
     left: 0;
-    background: burlywood;
+    background: #5E300E;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 0 20px;
+    padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
 }
