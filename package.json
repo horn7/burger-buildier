@@ -82,6 +82,7 @@
     ],
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
+    "homepage": "https://www.ediy2.ediy.pl/lessons/burger-app",
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
