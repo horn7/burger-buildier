@@ -21,6 +21,7 @@ const orderSummary = props => {
             <ul>
                 { ingridentSummary }
             </ul>
+            <p><strong>{props.summary.toFixed(2)}</strong></p>
             <p>Zajebiście, zamawiam!</p>
             <Button clicked={props.modalClosed} btnType="Danger">Anuluj</Button>
             <Button clicked={props.purchaseContinue} btnType="Success">Zatwierdź</Button>
