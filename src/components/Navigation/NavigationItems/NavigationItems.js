@@ -4,10 +4,9 @@ import NavigationItem from './NavigationItem/NavigationItem'
 
 const navigationItems = props => (
     <ul className={classes.NavigationItems}>
-        <NavigationItem link="/" active="true">Burger</NavigationItem>
-        <NavigationItem link="/">Zamawiam!</NavigationItem>
+        <NavigationItem link="#" active="true">Burger</NavigationItem>
+        <NavigationItem link="#">Zamawiam!</NavigationItem>
     </ul>
 );
 
 export default navigationItems;
-
