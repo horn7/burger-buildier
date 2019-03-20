@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './OrderSummary.css';
+// import classes from './OrderSummary.css';
 import Aux from  '../../../hoc/auxiliary';
 import Button from '../../../components/UI/Button/Button'
 
