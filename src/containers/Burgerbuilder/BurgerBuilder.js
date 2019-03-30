@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Aux from '../../hoc/auxiliary';
+import React, { Component, Fragment } from 'react';
 import Burger from '../../components/Burger/Burger';
 import BuildConrols from '../../components/Burger/BuildControls/BuildConrols';
 import Modal from '../../components/UI/Modal/Modal';
@@ -133,7 +132,7 @@ class BurgerBuilder extends Component {
                                 purchaseContinue={this.purchaseContinueHandler}/>
 
             burger = (
-                <Aux>
+                <Fragment>
                    <Burger ingredients={this.state.ingredients} />
                    <BuildConrols 
                        ingredientsAdded={this.addIngredientHandler}
@@ -143,17 +142,17 @@ class BurgerBuilder extends Component {
                        purchaseable={this.state.purchaseable}
                        ordered={this.purchaseHandler}
                        />
-               </Aux>
+               </Fragment>
             );
         }        
 
         return(
-            <Aux>
+            <Fragment>
                 <Modal show={this.state.purchaseclick} modalClosed={this.purchaseCancelHandler}>
                     { orderSummary }
                 </Modal>
                 { burger }                
-            </Aux>
+            </Fragment>
         )
     }
 }
