@@ -7,6 +7,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import axios from '../../axios-order';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import { withRouter } from 'react-router-dom';
 
 const INGREDIENTS_PRICE = {
     salad: 0.4,
@@ -82,31 +83,31 @@ class BurgerBuilder extends Component {
     purchaseContinueHandler = async () => {
         // alert('jedziemy!');
         this.setState({ loading: true });
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            cunstomer: {
-                name: 'test',
-                adres: {
-                    street: 'prosto z apki',
-                    zipCode: '01-687',
-                    counter: 'Warszawa'
-                }
-            },
-            deliveryMethod: {
-                service: 'Uber',
-                type: 'fastest'
-            }
-        }
-        await this.sleep(500);
-        axios.post('/orders.json', order).then(response =>{
-            this.setState({ loading: false });
-            console.log(response)
-        }).catch(error => {
-            this.setState({ loading: false });
-            console.log(error)
-        })
-
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     cunstomer: {
+        //         name: 'test',
+        //         adres: {
+        //             street: 'prosto z apki',
+        //             zipCode: '01-687',
+        //             counter: 'Warszawa'
+        //         }
+        //     },
+        //     deliveryMethod: {
+        //         service: 'Uber',
+        //         type: 'fastest'
+        //     }
+        // }
+        // await this.sleep(500);
+        // axios.post('/orders.json', order).then(response =>{
+        //     this.setState({ loading: false });
+        //     console.log(response)
+        // }).catch(error => {
+        //     this.setState({ loading: false });
+        //     console.log(error)
+        // })
+        this.props.history.push('/checkout');
     }
 
     render() {
@@ -123,7 +124,7 @@ class BurgerBuilder extends Component {
             orderSummary = <Spinner />;
         }
         
-        let burger = this.state.error ? <p>Nie można załadować składników</p> : <spinner />;
+        let burger = this.state.error ? <p>Nie można załadować składników</p> : <Spinner />;
 
         if(this.state.ingredients){
             orderSummary =  <OrderSummary 
@@ -158,4 +159,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default withErrorHandler(BurgerBuilder, axios);
+export default withRouter(withErrorHandler(BurgerBuilder, axios));
