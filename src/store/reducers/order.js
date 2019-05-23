@@ -29,6 +29,7 @@ const reducer = (state = initalState, action) => {
             }
         default: 
             return state;
+    };
 };
 
 export default reducer;
