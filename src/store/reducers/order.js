@@ -7,6 +7,11 @@ const initalState = {
 
 const reducer = (state = initalState, action) => {
     switch(action.type){
+        case actionTypes.PURCHASE_INIT:
+            return {
+                ...state,
+                purchased: false
+            }
         case actionTypes.PURCHASE_BURGER_START:
             return {
                 ...state,
@@ -15,11 +20,12 @@ const reducer = (state = initalState, action) => {
         case actionTypes.PURCHASE_BURGER_SUCCESS: 
             const newOrder = {
                 ...action.orderData,
-                id: action.orderId
+                id: action.orderId  
             }
             return {
                 ...state,
                 loading: false,
+                purchased: true,
                 orders: state.orders.concat(newOrder)
             }
         case actionTypes.PURCHASE_BURGER_FAIL: 
